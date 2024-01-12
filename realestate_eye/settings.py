@@ -151,4 +151,4 @@ LANGUAGES = [
 ]
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'real-estate-eye.onrender.com']
