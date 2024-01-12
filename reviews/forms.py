@@ -12,8 +12,8 @@ class CompanyReviewForm(forms.Form):
         required=False, max_length=256, label=_('Company facebook'))
     complaint_reason = forms.ChoiceField(
         required=True, choices=CompanyReview.COMPLAINT_REASON_CHOICES, label=_('Complaint reason'))
-    client_phone_number = forms.CharField(
-        required=False, max_length=256, label=_('Phone Number'))
+    # client_phone_number = forms.CharField(
+    #     required=False, max_length=256, label=_('Phone Number'))
     gov = forms.ChoiceField(
         required=True, choices=CompanyReview.GOV_CHOICES, label=_('Governorate'), help_text=_('apartment Governorate'))
     region = forms.CharField(
