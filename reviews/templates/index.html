@@ -2,5 +2,31 @@
 
 
 {% block content %}
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">
+        <h1 class="mt-5">دليل الشركات العقارية</h1>
+    </a>
+</nav>
+
+<div class="card w-100 mt-5">
+    <div class="card-body">
+        <h5 class="card-title">تسجيل شكوي</h5>
+        <p class="card-text">سجل شكوتك او مشكلتك التي واجهتك مع الشركات العقارية ليستفيد منها الجميع ويتجنب التعامل مع
+            تلك الشركات</p>
+        <a href="{% url 'review' %}" class="btn btn-primary">
+            تسجيل شكوي او مشكلة جديدة
+        </a>
+    </div>
+</div>
+
+<div class="card w-100 mt-5">
+    <div class="card-body">
+        <!-- <h5 class="card-title">تسجيل شكوي</h5> -->
+        <p class="card-text">اطلع علي الشكاوي و المشكلات, ابحث باسم الشركة</p>
+        <a href="{% url 'list_reviews' %}" class="btn btn-primary">
+            البحث في الشكاوي
+        </a>
+    </div>
+</div>
 
 {% endblock %}

@@ -31,10 +31,10 @@ def list_reviews(request):
         reviews = CompanyReview.objects.filter(Q(company_name__icontains=search_post))
     else:
         # If not searched, return default posts
-        reviews = CompanyReview.objects.all()
+        reviews = CompanyReview.objects.all().order_by("-created_at")
 
     context = {
         'reviews': reviews,
-        'search': search_post
+        'search': search_post if search_post else ''
     }
     return render(request, 'reviews_list.html', context=context)

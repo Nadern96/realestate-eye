@@ -20,4 +20,6 @@ class CompanyReviewForm(forms.Form):
         required=True, max_length=256, label=_('Region'), help_text=_('apartment region'))
     neighborhood = forms.CharField(
         required=True,  max_length=256, label=_('Neighborhood'), help_text=_('apartment neighborhood'))
+    land_num = forms.CharField(
+        required=False,  max_length=20, label=_('land number'), help_text=_('land number text'))
     comment = forms.CharField(required=True,widget=forms.Textarea, label=_('Comment'), help_text=_('details'))

@@ -28,8 +28,9 @@ class CompanyReview(models.Model):
                            choices=GOV_CHOICES, max_length=10)
     region = models.CharField(blank=False, null=False, max_length=256)
     neighborhood = models.CharField(blank=False, null=False, max_length=256)
+    land_num = models.CharField(blank=True, null=True, max_length=20)
     comment = models.TextField(blank=False, null=False)
-    # created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def complaint_reason_verbose(self):
         return dict(CompanyReview.COMPLAINT_REASON_CHOICES)[self.complaint_reason]
