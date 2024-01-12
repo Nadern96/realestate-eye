@@ -1,22 +1,60 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <h1 class="mt-2">الشكاوي</h1>
-    <hr class="mt-0 mb-4">
-    {% for review in reviews %}
-    <div class="container-fluid p-0">
-        <p>{{review.company_name}}</p>
-        <p>{{review.company_website}}</p>
-        <p>{{review.company_facebook}}</p>
-        <p>{{review.client_phone_number}}</p>
-        <p>{{review.complaint_reason_verbose}}</p>
-        <p>{{review.gov_verbose}}</p>
-        <p>{{review.region}}</p>
-        <p>{{review.neighborhood}}</p>
-        <p>{{review.comment}}</p>
-    </div>
-    <hr class="mt-0 mb-4">
+<br><br>
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">
+        <h1 class="mt-2">الشكاوي</h1>
+    </a>
+    <form class="form-inline" action="{% url 'list_reviews' %}">
+        <input class="form-control mr-sm-2" type="search" placeholder="ابحث بأسم الشركة" aria-label="Search" name="search" value={{search}}>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
 
-    {% endfor %}
+{% for review in reviews %}
+<br>
+<table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <th scope="row">اسم الشركة</th>
+            <td>{{review.company_name}}</td>
+        </tr>
+        <tr>
+            <th scope="row">موقع الشركة الالكتروني</th>
+            <td dir="ltr"><a href={{review.company_website}}>{{review.company_website}}</a></td>
+        </tr>
+        <tr>
+            <th scope="row">فيس بوك الشركة</th>
+            <td dir="ltr"><a href={{review.company_facebook}}>{{review.company_facebook}}</a></td>
+        </tr>
+<!--         
+        <tr>
+            <th scope="row">رقم تيلفون مقدم الشكوي</th>
+            <td>{{review.client_phone_number}}</td>
+        </tr> -->
+        <tr>
+            <th scope="row">سبب الشكوي</th>
+            <td>{{review.complaint_reason_verbose}}</td>
+        </tr>
+        <tr>
+            <th scope="row">المحافطة</th>
+            <td>{{review.gov_verbose}}</td>
+        </tr>
+        <tr>
+            <th scope="row">المنطقة</th>
+            <td>{{review.region}}</td>
+        </tr>
+        <tr>
+            <th scope="row">الحي</th>
+            <td>{{review.neighborhood}}</td>
+        </tr>
+        <tr>
+            <th scope="row">التعليق</th>
+            <td>{{review.comment}}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endfor %}
 
 {% endblock %}
