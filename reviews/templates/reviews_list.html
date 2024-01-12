@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="mt-2">الشكاوي</h1>
+    <hr class="mt-0 mb-4">
+    {% for review in reviews %}
+    <div class="container-fluid p-0">
+        <p>{{review.company_name}}</p>
+        <p>{{review.company_website}}</p>
+        <p>{{review.company_facebook}}</p>
+        <p>{{review.client_phone_number}}</p>
+        <p>{{review.complaint_reason_verbose}}</p>
+        <p>{{review.gov_verbose}}</p>
+        <p>{{review.region}}</p>
+        <p>{{review.neighborhood}}</p>
+        <p>{{review.comment}}</p>
+    </div>
+    <hr class="mt-0 mb-4">
+
+    {% endfor %}
+
+{% endblock %}
