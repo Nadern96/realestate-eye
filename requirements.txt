@@ -7,5 +7,5 @@ dnspython==2.4.2
 gunicorn==21.2.0
 packaging==23.2
 psycopg2==2.9.9
-sqlparse==0.2.4
 typing-extensions==4.9.0
+sqlparse==0.4.4
