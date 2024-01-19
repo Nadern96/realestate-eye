@@ -95,14 +95,16 @@ WSGI_APPLICATION = "realestate_eye.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fikumbgk',
-        'USER': 'fikumbgk',
-        'PASSWORD': 'qqQxai-rcwey7LDj35hp6qrIgeZKBQH1',
-        'HOST': 'postgres://fikumbgk:qqQxai-rcwey7LDj35hp6qrIgeZKBQH1@heffalump.db.elephantsql.com/fikumbgk',
-        'PORT': 5432,
+        # change sqlite3 for postgresql
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASS'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT')
     }
 }
 
