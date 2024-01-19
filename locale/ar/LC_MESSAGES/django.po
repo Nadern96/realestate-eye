@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-12 14:28+0200\n"
+"POT-Creation-Date: 2024-01-19 16:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1237,6 +1237,10 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#: env/lib/python3.8/site-packages/djongo/models/fields.py:630
+msgid "ObjectId"
+msgstr ""
+
 #: reviews/forms.py:8
 msgid "Company name"
 msgstr "اسم الشركة"
@@ -1251,7 +1255,7 @@ msgstr "فيس بوك الشركة (ان وجد)"
 
 #: reviews/forms.py:14
 msgid "Complaint reason"
-msgstr "سبب الشكوي"
+msgstr "سبب المشكلة"
 
 #: reviews/forms.py:18
 msgid "Governorate"
@@ -1278,21 +1282,21 @@ msgstr "الحي"
 msgid "apartment neighborhood"
 msgstr "الحي التي يقع فيه العقار (مثال: النرجس الجديد)"
 
-#: reviews/forms.py:23
-msgid "Comment"
-msgstr "التعليق"
-
-#: reviews/forms.py:23
-msgid "details"
-msgstr "التفاصيل"
-
-#: reviews/forms.py:25
+#: reviews/forms.py:24
 msgid "land number"
 msgstr "رقم قطعة الارض"
 
-#: reviews/forms.py:25
+#: reviews/forms.py:24
 msgid "land number text"
 msgstr "رقم قطعة الارض (مثال: A116)"
+
+#: reviews/forms.py:25
+msgid "Comment"
+msgstr "التعليق"
+
+#: reviews/forms.py:25
+msgid "details"
+msgstr "التفاصيل"
 
 #: reviews/models.py:9
 msgid "Delay"
