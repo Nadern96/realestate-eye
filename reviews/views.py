@@ -25,16 +25,42 @@ def review(request):
     return render(request, 'review_form.html', context=context)
 
 def list_reviews(request):
+    search_by = request.GET.get('search_by')
+    gov = request.GET.get('gov')
+    complain_reason = request.GET.get('complain_reason')
+
     search_post = request.GET.get('search')
-            
+
+    query = []
+
+    if gov is not None:
+        query.append(Q(gov=gov))
+    
+    if complain_reason is not None:
+        query.append(Q(complaint_reason=complain_reason))
+
+    if len(search_post) > 0:
+        if search_by == "company_name":
+            query.append(Q(company_name__icontains=search_post))
+
+        elif search_by == "region":
+            query.append(Q(region__icontains=search_post))
+
+        elif search_by == "neighborhood":
+            query.append(Q(neighborhood__icontains=search_post))
+
+    print(query)
     if search_post:
-        reviews = CompanyReview.objects.filter(Q(company_name__icontains=search_post))
+        reviews = CompanyReview.objects.filter(*query)
     else:
         # If not searched, return default posts
         reviews = CompanyReview.objects.all().order_by("-created_at")
 
     context = {
         'reviews': reviews,
-        'search': search_post if search_post else ''
+        'search_by': search_by if search_by else '',
+        'search': search_post if search_post else '',
+        'complaint_reasons': list(CompanyReview.COMPLAINT_REASON_CHOICES),
+        'govs': list(CompanyReview.GOV_CHOICES),
     }
     return render(request, 'reviews_list.html', context=context)
