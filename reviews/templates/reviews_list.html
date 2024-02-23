@@ -3,7 +3,40 @@
 {% block title %} Real Estate Reviews - List {%endblock%} 
 
 {% block content %}
+<style>
+    .search-form {
+        width: 100%;
+    }
+    .search-form-container {
+        display: flex; 
+        justify-content: space-between; 
+        width: 100%
+    }
+    @media only screen and (max-width: 970px) {
+        .search-form-container {
+            align-items: space-between; 
+            flex-direction: column; 
+        }
+        .search-form-cntr-box {
+           margin-bottom: 10px; 
+        }
+    }
 
+    @media only screen and (max-width: 600px) {
+        .search-form-container {
+            align-items: space-between; 
+            flex-direction: column; 
+        }
+        .search-form-cntr-box {
+           margin-bottom: 20px; 
+        }
+        .search-form-cntr-box-item {
+           margin-bottom: 5px; 
+        }
+    }
+    
+
+</style>
 <br><br>
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">
@@ -18,17 +51,17 @@
 <br><br>
 
 <nav class="navbar navbar-light bg-light">
-    <form class="form-inline" action="{% url 'list_reviews' %}" style="width: 100%">
-        <div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%">
-            <div>
-                <select class="form-control mr-sm-2" name="gov">
+    <form class="form-inline search-form" action="{% url 'list_reviews' %}">
+        <div class="search-form-container">
+            <div class="search-form-cntr-box">
+                <select class="form-control mr-sm-2 search-form-cntr-box-item" name="gov">
                     <option selected disabled hidden>المحافطة</option>
                     {% for id, value in govs %}
                         <option value="{{ id }}">{{ value }}</option>
                     {% endfor %}
                 </select>
         
-                <select class="form-control mr-sm-2" name="complain_reason">
+                <select class="form-control mr-sm-2 search-form-cntr-box-item" name="complain_reason">
                     <option selected disabled hidden>سبب المشكلة</option>
                     {% for id, value in complaint_reasons %}
                         <option value="{{ id }}">{{ value }}</option>
@@ -36,13 +69,13 @@
                 </select>
             </div>
            
-            <div>
-                <select id="search_by_menu" name="search_by" class="form-control mr-sm-2">
+            <div class="search-form-cntr-box">
+                <select id="search_by_menu" name="search_by" class="form-control mr-sm-2 search-form-cntr-box-item">
                     <option value="company_name">اسم الشركة</option>
                     <option value="region">المنطقة</option>
                     <option value="neighborhood">الحي</option>
                 </select>
-                <input id="search_input" class="form-control mr-sm-2" type="search" placeholder="ابحث بأسم الشركة" aria-label="Search"
+                <input id="search_input" class="form-control mr-sm-2 search-form-cntr-box-item" type="search" placeholder="ابحث بأسم الشركة" aria-label="Search"
                     name="search" value={{search}}>
 
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
