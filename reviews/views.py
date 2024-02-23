@@ -49,7 +49,7 @@ def list_reviews(request):
         elif search_by == "neighborhood":
             query.append(Q(neighborhood__icontains=search_post))
 
-    if search_post:
+    if len(query):
         reviews = CompanyReview.objects.filter(*query)
     else:
         # If not searched, return default posts
