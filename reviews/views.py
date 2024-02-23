@@ -39,7 +39,7 @@ def list_reviews(request):
     if complain_reason is not None:
         query.append(Q(complaint_reason=complain_reason))
 
-    if len(search_post) > 0:
+    if search_post is not None and len(search_post) > 0:
         if search_by == "company_name":
             query.append(Q(company_name__icontains=search_post))
 
@@ -49,7 +49,6 @@ def list_reviews(request):
         elif search_by == "neighborhood":
             query.append(Q(neighborhood__icontains=search_post))
 
-    print(query)
     if search_post:
         reviews = CompanyReview.objects.filter(*query)
     else:
